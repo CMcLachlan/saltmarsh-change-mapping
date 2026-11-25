@@ -11,7 +11,8 @@ Classification of saltmarsh extent from Landsat, aerial imagery and digital elev
 - Calculate and export Landsat seasonal vegetation indices in Google Earth Engine. (Code snapshot: 
 https://code.earthengine.google.com/19281d4a83d389756c111d9021008598 - upload or digitise study area polygon to clip 
 and export results for the required area.)
-- (If including), calculate gray-level co-occurence matrix texture features (e.g. in QGIS 'r.texture' or in R.)
+- (If including), calculate gray-level co-occurence matrix texture features from aerial imagery (e.g. in QGIS 
+'r.texture' or in R.)
 - Run "Data preparation" script to clip all input data to the study area, resample Landsat and elevation data to aerial
 imagery pixel size, and stack all input layers to "all data" and "Landsat-DTM" rasters.
 - Digitise training sample locations in a GIS and extract training/testing sample data (e.g. by sampling values from the
@@ -19,7 +20,7 @@ digitised locations in a GIS, or using R/other means.) A CSV file is required co
 a landcover assigned and "polygon number" to be used for splitting sample values. 
 
 ### 3. Run the classification
-- Once all data is prepared (raster "stack" of input data and training/testing samples), update the file paths as 
+- Once all data is prepared (raster "stack" of input data and training/testing samples CSV), update the file paths as 
 required within the classification script and run the classification using the 
 "RF_classification_adapted_from_Joe_Agate" script. 
 - Sample data can be adapted to different years of input data to classify multiple dates for the same site in a 
@@ -29,8 +30,8 @@ standardised way.
 - Receiver operating characteristic curve with Youden index, or true positive predicted saltmarsh probability in output 
 "predprob" CSV files can be used to select a classification threshold at which pixels are included as "saltmarsh", 
 rather than taking the original predicted value. 
-- To use the ROC curve and Youden index, use "ROC_Youden_threshold_filtering" script
-- To use predicted probabilities in testing data, use "Saltmarsh_filtering_on_sample_TP" script.
+- To use the ROC curve and Youden index, use the "ROC_Youden_threshold_filtering" script
+- To use predicted probabilities in testing data, use the "Saltmarsh_filtering_on_sample_TP" script.
 
 ### 5. Essential validation
 - In addition to examining accuracy assessment values, additional data must be used to validate results. Unmanned aerial
@@ -44,5 +45,5 @@ extend beyond later years if there has been erosion, and later years will extend
 accretion. Stepwise changes between multiple dates may be visible if changes have been occurring gradually over time.)
 - Changes may also be directly identified between dates by subtracting results from one year from results from another 
 year. (Classified saltmarsh present in both years = "stable", classified saltmarsh present in earlier year but not in 
-- later year = "loss", classified saltmarsh present in later year but not in earlier year = "gain".)
+later year = "loss", classified saltmarsh present in later year but not in earlier year = "gain".)
 - Absolute extents can only be estimated with detailed manual checks for mis-classified areas. 
