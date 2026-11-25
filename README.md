@@ -8,7 +8,9 @@ Classification of saltmarsh extent from Landsat, aerial imagery and digital elev
 - Digital elevation model
 
 ### 2. Preparation of data
-- Calculate and export Landsat seasonal vegetation indices in Google Earth Engine.
+- Calculate and export Landsat seasonal vegetation indices in Google Earth Engine. (Code snapshot: 
+https://code.earthengine.google.com/19281d4a83d389756c111d9021008598 - upload or digitise study area polygon to clip 
+and export results for the required area.)
 - (If including), calculate gray-level co-occurence matrix texture features (e.g. in QGIS 'r.texture' or in R.)
 - Run "Data preparation" script to clip all input data to the study area, resample Landsat and elevation data to aerial
 imagery pixel size, and stack all input layers to "all data" and "Landsat-DTM" rasters.
